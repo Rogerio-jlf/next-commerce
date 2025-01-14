@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function NavBar() {
   return (
@@ -9,6 +11,18 @@ export default function NavBar() {
       >
         Next Store
       </Link>
+      <div className="flex items-center gap-8">
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton mode="modal">
+            <button className="border rounded-md border-gray-400 px-3 py-2">
+              Sign In
+            </button>
+          </SignInButton>
+        </SignedOut>
+      </div>
     </nav>
   );
 }
