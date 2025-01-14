@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 
@@ -26,7 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={clsx(
+          `${geistSans.variable} ${geistMono.variable} antialiased`,
+          "bg-slate-700"
+        )}
       >
         <NavBar />
         <main className="bg-slate-700 h-screen p-16">{children}</main>
