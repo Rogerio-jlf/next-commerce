@@ -4,7 +4,8 @@ import clsx from "clsx";
 import "./globals.css";
 import NavBar from "./components/NavBar";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ptBR } from '@clerk/localizations'
+import { ptBR } from "@clerk/localizations";
+import { Hydrate } from "./components/Hydrate";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,8 +36,10 @@ export default function RootLayout({
             "bg-slate-700"
           )}
         >
-          <NavBar />
-          <main className="bg-slate-700 h-screen p-16">{children}</main>
+          <Hydrate>
+            <NavBar />
+            <main className="bg-slate-700 h-screen p-16">{children}</main>
+          </Hydrate>
         </body>
       </html>
     </ClerkProvider>
